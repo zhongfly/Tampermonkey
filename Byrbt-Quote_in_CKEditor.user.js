@@ -4,6 +4,8 @@
 // @version      20210907
 // @description  为BYRBT的编辑器添加代码（code）引用框
 // @author       Rhilip & shadows
+// @license      MIT License
+// Modified from https://github.com/Rhilip/PT-help/raw/master/docs/js/Byrbt%20-%20Quote%20in%20CKEditor.user.js
 // @updateURL    https://cdn.jsdelivr.net/gh/zhongfly/Tampermonkey@master/Byrbt-Quote_in_CKEditor.user.js
 // @downloadURL  https://cdn.jsdelivr.net/gh/zhongfly/Tampermonkey@master/Byrbt-Quote_in_CKEditor.user.js
 // @homepage     https://github.com/zhongfly/Tampermonkey

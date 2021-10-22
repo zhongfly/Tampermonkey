@@ -1,6 +1,8 @@
 // ==UserScript==
 // @name        BYRBT Bangumi Info
 // @author      Deparsoul & shadows
+// @license      MIT License
+// Modified from https://greasyfork.org/zh-CN/scripts/39367-byrbt-bangumi-info
 // @description 一键生成新番信息
 // @namespace   https://greasyfork.org/users/726
 // @updateURL    https://cdn.jsdelivr.net/gh/zhongfly/Tampermonkey@master/BYRBT_Bangumi_Info.user.js

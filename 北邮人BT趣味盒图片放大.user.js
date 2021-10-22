@@ -11,6 +11,8 @@
 // @include      /^https?://byr\.pt/log\.php\?action=funbox.*$/
 // @icon         https://byr.pt/favicon.ico
 // @grant        none
+// @license      MIT License
+// Modified from @Xuser2018 https://greasyfork.org/zh-CN/scripts/387293-byrbt%E8%B6%A3%E5%91%B3%E7%9B%92%E5%9B%BE%E7%89%87%E6%94%BE%E5%A4%A7
 // ==/UserScript==
 'use strict';
 var path = window.location.pathname;
