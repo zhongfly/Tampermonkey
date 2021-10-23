@@ -1,18 +1,21 @@
 // ==UserScript==
-// @name         Byrbt : Quote in CKEditor
-// @namespace    http://blog.rhilip.info
-// @version      20210907
-// @description  为BYRBT的编辑器添加代码（code）引用框
-// @author       Rhilip & shadows
-// @license      MIT License
-// Modified from https://github.com/Rhilip/PT-help/raw/master/docs/js/Byrbt%20-%20Quote%20in%20CKEditor.user.js
-// @updateURL    https://cdn.jsdelivr.net/gh/zhongfly/Tampermonkey@master/Byrbt-Quote_in_CKEditor.user.js
-// @downloadURL  https://cdn.jsdelivr.net/gh/zhongfly/Tampermonkey@master/Byrbt-Quote_in_CKEditor.user.js
-// @homepage     https://github.com/zhongfly/Tampermonkey
-// @match        http*://byr.pt/edit.php*
-// @match        http*://byr.pt/upload.php*
-// @icon         https://byr.pt/favicon.ico
-// @require      https://cdn.bootcss.com/simplemodal/1.4.4/jquery.simplemodal.min.js
+// @name             Byrbt : Quote in CKEditor
+// @namespace        shadows
+// @version          20210907
+// @description      为BYRBT的编辑器添加代码（code）引用框
+// @author           shadows
+// @updateURL        https://cdn.jsdelivr.net/gh/zhongfly/Tampermonkey@master/Byrbt-Quote_in_CKEditor.user.js
+// @downloadURL      https://cdn.jsdelivr.net/gh/zhongfly/Tampermonkey@master/Byrbt-Quote_in_CKEditor.user.js
+// @homepage         https://github.com/zhongfly/Tampermonkey
+// @match            http*://byr.pt/edit.php*
+// @match            http*://byr.pt/upload.php*
+// @icon             https://byr.pt/favicon.ico
+// @require          https://cdn.bootcss.com/simplemodal/1.4.4/jquery.simplemodal.min.js
+// @license          MIT License
+// @copyright        Copyright (c) 2021 shadows
+// @original-script  https://github.com/Rhilip/PT-help/raw/master/docs/js/Byrbt%20-%20Quote%20in%20CKEditor.user.js
+// @original-author  Rhilip
+// @original-license MIT
 // ==/UserScript==
  
 const DEFAULT_STYLE = [
@@ -122,14 +125,7 @@ CKEDITOR.on('instanceReady', function (evt) {
 });
  
 /**
- * Created by Rhilip on 6/30/2017.
  * 20210809: 直接在光标处插入内容,添加折叠样式
  * 20210415: 添加 @NORMALX滚动条样式
  * 20210410: 添加 带框折叠样式
- * 20180104: Code style Fix.
- * 20171102: Fix `0x` lost in descr after publish.
- * 20170917: Fix When number of Style gt(4)
- * 20170912: Use CKEDITOR.on('instanceReady', function(){}) instead of waitForKeyElements("#cke_descr", function () {})
- * 20170808: USE the dict list to manage the code style
- * 20170630: Test Version~
  */

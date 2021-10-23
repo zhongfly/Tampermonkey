@@ -1,27 +1,29 @@
 // ==UserScript==
-// @name        BYRBT Bangumi Info
-// @author      Deparsoul & shadows
-// @license      MIT License
-// Modified from https://greasyfork.org/zh-CN/scripts/39367-byrbt-bangumi-info
-// @description 一键生成新番信息
-// @namespace   https://greasyfork.org/users/726
-// @updateURL    https://cdn.jsdelivr.net/gh/zhongfly/Tampermonkey@master/BYRBT_Bangumi_Info.user.js
-// @downloadURL  https://cdn.jsdelivr.net/gh/zhongfly/Tampermonkey@master/BYRBT_Bangumi_Info.user.js
-// @homepage     https://github.com/zhongfly/Tampermonkey
-// @include     http*://byr.pt*/upload.php?type=404*
-// @include     http*://byr.pt*/edit.php*
-// @icon        https://byr.pt/favicon.ico
-// @require     https://cdn.jsdelivr.net/gh/deparsoul/torrent-info-hash@2.0/bundle.js
-// @require     https://cdn.jsdelivr.net/npm/resemblejs@2.10.0/resemble.min.js
-// @run-at      document-end
-// @grant       GM_xmlhttpRequest
-// @grant       GM_setClipboard
-// @connect     mikanani.me
-// @connect     bgm.tv
-// @connect     movie.douban.com
-// @connect     anydb.depar.cc
-// @connect     *
-// @version     20210809
+// @name            BYRBT Bangumi Info
+// @namespace       shadows
+// @author          shadows
+// @description     一键生成新番信息
+// @updateURL       https://cdn.jsdelivr.net/gh/zhongfly/Tampermonkey@master/BYRBT_Bangumi_Info.user.js
+// @downloadURL     https://cdn.jsdelivr.net/gh/zhongfly/Tampermonkey@master/BYRBT_Bangumi_Info.user.js
+// @homepage        https://github.com/zhongfly/Tampermonkey
+// @include         http*://byr.pt*/upload.php?type=404*
+// @include         http*://byr.pt*/edit.php*
+// @icon            https://byr.pt/favicon.ico
+// @require         https://cdn.jsdelivr.net/gh/deparsoul/torrent-info-hash@2.0/bundle.js
+// @require         https://cdn.jsdelivr.net/npm/resemblejs@2.10.0/resemble.min.js
+// @run-at          document-end
+// @grant           GM_xmlhttpRequest
+// @grant           GM_setClipboard
+// @connect         mikanani.me
+// @connect         bgm.tv
+// @connect         movie.douban.com
+// @connect         anydb.depar.cc
+// @connect         *
+// @version         20210809
+// @license         MIT License
+// @copyright       Copyright (c) 2021 shadows
+// @original-script https://greasyfork.org/zh-CN/scripts/39367-byrbt-bangumi-info
+// @original-author Deparsoul
 // ==/UserScript==
 
 let GM_scriptVersion = '';
@@ -514,7 +516,7 @@ input.bangumi_info_url {
                 this.render();
             },
             get(key) {
-                if(!fields.hasOwnProperty(key))
+                if (!fields.hasOwnProperty(key))
                     return [];
                 return fields[key].reduce((result, current) => result.indexOf(current.v) < 0 ? result.concat(current.v) : result, []);
             },
@@ -522,7 +524,7 @@ input.bangumi_info_url {
                 if (!fields.hasOwnProperty(key))
                     fields[key] = [];
                 if (!val) return;
-                fields[key].push({v: val, s: source});
+                fields[key].push({ v: val, s: source });
                 this.render();
             },
             addDate(date, source) {
