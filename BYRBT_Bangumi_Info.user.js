@@ -19,9 +19,9 @@
 // @connect         movie.douban.com
 // @connect         anydb.depar.cc
 // @connect         *
-// @version         20210809
+// @version         20231014
 // @license         MIT License
-// @copyright       Copyright (c) 2021 shadows
+// @copyright       Copyright (c) 2023 shadows
 // @original-script https://greasyfork.org/zh-CN/scripts/39367-byrbt-bangumi-info
 // @original-author Deparsoul
 // ==/UserScript==
@@ -37,7 +37,7 @@ if (GM_info && GM_info.script) {
     let type = $('#type,#browsecat>option:selected,#oricat>option:selected').text();
     if (type !== '动漫') return;
 
-    $('#kdescr, .ckeditor').closest('tr').before('<tr id="bangumi_info_row"><td class="rowhead nowrap">生成新番信息</td><td><input type="button" id="bangumi_info_process" value="开始"></td></tr>');
+    $('textarea[name=descr]').closest('tr').before('<tr id="bangumi_info_row"><td class="rowhead nowrap">生成新番信息</td><td><input type="button" id="bangumi_info_process" value="开始"></td></tr>');
 
     $('#bangumi_info_process').click(function () {
         $('head').prepend('<meta name="referrer" content="no-referrer">'); // 防止在引用外链图片时发送 referrer
@@ -79,6 +79,7 @@ input.bangumi_info_url {
 #bangumi_info_preview {
     border: 1px solid;
     padding: 1em;
+    text-align: left;
 }
 .bangumi_info_cover_link[href],
 .bangumi_info_auto_field {
@@ -343,7 +344,12 @@ input.bangumi_info_url {
         fill.hide();
         let preview = $('#bangumi_info_preview');
         fill.click(function () {
-            CKEDITOR.instances.descr.setData(preview.html());
+            if (new URL(document.location).searchParams.get('ckeditor')==1) {
+                CKEDITOR.instances.descr.setData(preview.html())
+            } else {
+                tinymce.activeEditor.resetContent("");
+                tinymce.activeEditor.setContent(preview.html());
+            }
         });
 
         function renderPreview() {
@@ -376,7 +382,7 @@ input.bangumi_info_url {
                 meta.append(`，信息来自：${reference}`);
             }
             meta.appendTo(preview);
-            if ($('.ckeditor').length)
+            if (preview.text().length)
                 fill.show();
             else
                 fill.hide();
